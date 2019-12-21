@@ -1,0 +1,14 @@
+﻿  ListenSortierung.cpp
+D:\data\git\philip-leo-verkettete-liste\list\ListenSortierung.cpp(402,17): warning C4473: 'scanf_s' : not enough arguments passed for format string
+D:\data\git\philip-leo-verkettete-liste\list\ListenSortierung.cpp(402,17): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+D:\data\git\philip-leo-verkettete-liste\list\ListenSortierung.cpp(402,17): message : the missing variadic argument 2 is required by format string '%c'
+D:\data\git\philip-leo-verkettete-liste\list\ListenSortierung.cpp(402,17): message : this argument is used as a buffer size
+D:\data\git\philip-leo-verkettete-liste\list\ListenSortierung.cpp(416,21): warning C4473: 'scanf_s' : not enough arguments passed for format string
+D:\data\git\philip-leo-verkettete-liste\list\ListenSortierung.cpp(416,21): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+D:\data\git\philip-leo-verkettete-liste\list\ListenSortierung.cpp(416,21): message : the missing variadic argument 2 is required by format string '%c'
+D:\data\git\philip-leo-verkettete-liste\list\ListenSortierung.cpp(416,21): message : this argument is used as a buffer size
+D:\data\git\philip-leo-verkettete-liste\list\ListenSortierung.cpp(418,21): warning C4473: 'scanf_s' : not enough arguments passed for format string
+D:\data\git\philip-leo-verkettete-liste\list\ListenSortierung.cpp(418,21): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+D:\data\git\philip-leo-verkettete-liste\list\ListenSortierung.cpp(418,21): message : the missing variadic argument 2 is required by format string '%c'
+D:\data\git\philip-leo-verkettete-liste\list\ListenSortierung.cpp(418,21): message : this argument is used as a buffer size
+  list.vcxproj -> D:\data\git\philip-leo-verkettete-liste\Debug\list.exe

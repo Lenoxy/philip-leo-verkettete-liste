@@ -38,8 +38,6 @@ bool CheckSortedList(struPerson **pList);
 
 void PrintHauptMenu();
 
-void Benchmark(int Anzahl);
-void BenchmarkBonus(int Anzahl);
 
 /*
  * Erstellt eine Liste von definierter Anzahl Elementen
@@ -385,60 +383,13 @@ void PrintHauptMenu() {
     printf("Ausgabe Liste (p)\n");
     printf("Exit (e)\n");
     printf("===\n");
-    printf("Bonus\n");
-    printf("Ist Liste sortiert? (k)\n");
-    printf("Sortieren InsertSort (i)\n");
-    printf("Benchmark (b)\n");
-    printf("Eingabe: ");
+    //printf("Bonus\n");
+    //printf("Ist Liste sortiert? (k)\n");
+    //printf("Sortieren InsertSort (i)\n");
+    //printf("Benchmark (b)\n");
+    //printf("Eingabe: ");
 }
 
-/*
- * Benchmark MergeSort
- * Anzahl: Anzahl Elemente
- */
-void Benchmark(int Anzahl) {
-    LARGE_INTEGER StartingTime, EndingTime, ElapsedMicroseconds;
-    LARGE_INTEGER Frequency;
-    struPerson *pStart = CreateList(Anzahl);
-
-    QueryPerformanceFrequency(&Frequency);
-    QueryPerformanceCounter(&StartingTime);
-
-    MergeSort(&pStart);
-
-    QueryPerformanceCounter(&EndingTime);
-    ElapsedMicroseconds.QuadPart = EndingTime.QuadPart - StartingTime.QuadPart;
-    ElapsedMicroseconds.QuadPart *= 1000000;
-    ElapsedMicroseconds.QuadPart /= Frequency.QuadPart;
-
-    ClearList(&pStart);
-
-    printf("MergeSort took %I64d microseconds\n", ElapsedMicroseconds.QuadPart);
-}
-
-/*
- * Benchmark InsertSort
- * Anzahl: Anzahl Elemente
- */
-void BenchmarkBonus(int Anzahl) {
-    LARGE_INTEGER StartingTime, EndingTime, ElapsedMicroseconds;
-    LARGE_INTEGER Frequency;
-    struPerson *pStart = CreateList(Anzahl);
-
-    QueryPerformanceFrequency(&Frequency);
-    QueryPerformanceCounter(&StartingTime);
-
-    InsertSort(&pStart);
-
-    QueryPerformanceCounter(&EndingTime);
-    ElapsedMicroseconds.QuadPart = EndingTime.QuadPart - StartingTime.QuadPart;
-    ElapsedMicroseconds.QuadPart *= 1000000;
-    ElapsedMicroseconds.QuadPart /= Frequency.QuadPart;
-
-    ClearList(&pStart);
-
-    printf("InsertSort took %I64d microseconds\n", ElapsedMicroseconds.QuadPart);
-}
 
 int main() {
     // Zufallszahlen initialisieren, damit bei jedem Programmstart andere Werte erzeugt werden
@@ -454,14 +405,6 @@ int main() {
             printf("\nAnzahl Elemente: ");
             scanf_s("%d", &anzahlElemente);
             pList = CreateList(anzahlElemente);
-            PrintHauptMenu();
-            break;
-        case 'b':
-            for (int i = 1000; i < 10000; i += 1000) {
-                printf("Benchmark: %i\n", i);
-                Benchmark(i);
-                BenchmarkBonus(i);
-            }
             PrintHauptMenu();
             break;
         case 'c':
