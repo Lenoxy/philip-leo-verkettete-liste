@@ -1,24 +1,24 @@
 #include "stdlib.h"
 #include "stdio.h"
 
-
 // Typedefinition
-typedef struct Grafikkarte {
+typedef struct Grafikkarte
+{
 	char name[40];
 	char hersteller[40];
 	int herstellungsjahr;
-	struct Grafikkarte* pNext;
-	struct Grafikkarte* pPrev;
+	struct Grafikkarte *pNext;
+	struct Grafikkarte *pPrev;
 } struGrafikkarte;
 
 // Function declaration
-struGrafikkarte* CreateList(int Amount);
-void DeleteList(struGrafikkarte** pList);
-void DeleteElement(struGrafikkarte** pList, char name, char hersteller);
+struGrafikkarte *CreateList(int Amount);
+void DeleteList(struGrafikkarte **pList);
+void DeleteElement(struGrafikkarte **pList, char name, char hersteller);
 //void SortList();
 //void PrintList(struGrafikkarte** pList, int Amount);
 //void QuitApplication();
-//void PrintUserInterface();
+void PrintUserInterface();
 char GenerateRandomChar();
 int GenerateRandomYear();
 
@@ -29,10 +29,10 @@ int GenerateRandomYear();
 *@Return pStart
 */
 
-struGrafikkarte* CreateList(int Amount)
+struGrafikkarte *CreateList(int Amount)
 {
-	struGrafikkarte* pStart = NULL;
-	struGrafikkarte* pEnd = NULL;
+	struGrafikkarte *pStart = NULL;
+	struGrafikkarte *pEnd = NULL;
 
 	for (int i = 0; i < Amount; i++)
 	{
@@ -40,8 +40,7 @@ struGrafikkarte* CreateList(int Amount)
 		char Hersteller = GenerateRandomChar();
 		int Herstellungsjahr = GenerateRandomYear();
 
-		struGrafikkarte* pNewElement = (struGrafikkarte*)malloc(sizeof(struGrafikkarte));
-
+		struGrafikkarte *pNewElement = (struGrafikkarte *)malloc(sizeof(struGrafikkarte));
 
 		pNewElement->name[0] = Name;
 		pNewElement->name[1] = '\0';
@@ -61,13 +60,11 @@ struGrafikkarte* CreateList(int Amount)
 		}
 		return pStart;
 	}
-
 }
-
 
 /*
 *Autor: Philip Baumann
-*Generate a random letter in the alaphabet
+*Generates a random letter in the alaphabet
 *@Param
 *@Return random letter 
 */
@@ -86,13 +83,12 @@ char GenerateRandomChar()
 *@Return random year as an integer
 */
 
-char GenerateRandomYear() 
+char GenerateRandomYear()
 {
 	int value = 1900;
 	value + rand() % 118;
 	return value;
 }
-
 
 /*
 *Autor: Philip Baumann
@@ -103,8 +99,8 @@ char GenerateRandomYear()
 
 void DeleteList(struGrafikkarte **pList)
 {
-	struGrafikkarte* pCurrent = *pList;
-	struGrafikkarte* pNext = NULL;
+	struGrafikkarte *pCurrent = *pList;
+	struGrafikkarte *pNext = NULL;
 
 	while (pCurrent != NULL)
 	{
@@ -117,25 +113,38 @@ void DeleteList(struGrafikkarte **pList)
 
 void DeleteElement(struGrafikkarte **pList, char Name, char hersteller)
 {
-	struGrafikkarte* pCurrent = *pList;
-	struGrafikkarte* pPrevious = NULL;
+	struGrafikkarte *pCurrent = *pList;
+	struGrafikkarte *pPrevious = NULL;
 
 	while (pCurrent != NULL)
 	{
-		if ()
+		// if ()
+		// TODO @Philip
 	}
-
-
 }
 
 
+/*
+*Autor: Leo Scherer
+*Prints the Main Menu
+*@Param
+*@Return
+*/
 
-
-
-void main() {
-
+void PrintUserInterface()
+{
+	printf("\n----------\n");
+	printf("Main Menu\n");
+	printf("Liste erstellen [a]\n");
+	printf("Liste l\94schen [l]\n");
+	printf("Element l\94chen [e]\n");
+	printf("Liste sortieren [s]\n");
+	printf("Liste ausgeben [p]\n");
+	printf("Programm verlassen [e]\n");
+    printf("----------\n");
 }
 
-
-
-
+void main()
+{
+	PrintUserInterface();
+}
