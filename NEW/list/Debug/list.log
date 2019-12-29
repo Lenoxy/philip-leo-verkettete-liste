@@ -1,0 +1,12 @@
+﻿  Source.cpp
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(89,8): warning C4552: '+': result of expression not used
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(135,2): warning C4551: function call missing argument list
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(153,9): warning C4129: '9': unrecognized character escape sequence
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(154,9): warning C4129: '9': unrecognized character escape sequence
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(159,10): warning C4473: 'scanf_s' : not enough arguments passed for format string
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(159,10): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(159,10): message : the missing variadic argument 2 is required by format string '%c'
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(159,10): message : this argument is used as a buffer size
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(183,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(63): warning C4715: 'CreateList': not all control paths return a value
+  list.vcxproj -> D:\data\git\philip-leo-verkettete-liste\NEW\Debug\list.exe

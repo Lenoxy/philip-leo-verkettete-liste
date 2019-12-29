@@ -15,12 +15,12 @@ typedef struct Grafikkarte
 struGrafikkarte *CreateList(int Amount);
 void DeleteList(struGrafikkarte **pList);
 void DeleteElement(struGrafikkarte **pList, char name, char hersteller);
-//void SortList();
-//void PrintList(struGrafikkarte** pList, int Amount);
-//void QuitApplication();
-void PrintUserInterface();
+void SortList();
+void PrintList(struGrafikkarte** pList, int Amount);
+void QuitApplication();
+void PrintAndSelectUserInterface();
 char GenerateRandomChar();
-int GenerateRandomYear();
+char GenerateRandomYear();
 
 /*
 *Autor: Philip Baumann
@@ -123,6 +123,19 @@ void DeleteElement(struGrafikkarte **pList, char Name, char hersteller)
 	}
 }
 
+void SortList() {
+
+}
+
+void PrintList(struGrafikkarte** pList, int Amount) {
+
+}
+
+void QuitApplication() {
+	exit;
+}
+
+
 
 /*
 *Autor: Leo Scherer
@@ -131,20 +144,42 @@ void DeleteElement(struGrafikkarte **pList, char Name, char hersteller)
 *@Return
 */
 
-void PrintUserInterface()
+void PrintAndSelectUserInterface()
 {
-	printf("\n----------\n");
-	printf("Main Menu\n");
-	printf("Liste erstellen [a]\n");
-	printf("Liste l\94schen [l]\n");
-	printf("Element l\94chen [e]\n");
-	printf("Liste sortieren [s]\n");
-	printf("Liste ausgeben [p]\n");
-	printf("Programm verlassen [e]\n");
-    printf("----------\n");
+	printf("\n\n--------------------\n");
+	printf("--- Main Menu ---\n");
+	printf("[a] Liste erstellen\n");
+	printf("[s] Liste sortieren\n");
+	printf("[l] Liste l\94schen\n");
+	printf("[e] Element l\94chen\n");
+	printf("[p] Liste ausgeben\n");
+	printf("[v] Programm verlassen\n");
+	printf("--------------------\n");
+	char selection;
+	scanf_s("%c", &selection);
+	switch (selection) {
+	case 'a':
+		CreateList(NULL);
+		break;
+	case 's':
+		SortList();
+		break;
+	case 'l':
+		DeleteList(NULL);
+		break;
+	case 'e':
+		DeleteElement(NULL, NULL, NULL);
+		break;
+	case 'p':
+		PrintList(NULL, NULL);
+		break;
+	case 'v':
+		QuitApplication();
+		break;
+	}
 }
 
 void main()
 {
-	PrintUserInterface();
+	PrintAndSelectUserInterface();
 }
