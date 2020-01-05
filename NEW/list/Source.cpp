@@ -16,7 +16,8 @@ struGrafikkarte *CreateList(int Amount);
 void DeleteList(struGrafikkarte **pList);
 void DeleteElement(struGrafikkarte **pList, char name, char hersteller);
 void SortList();
-void PrintList(struGrafikkarte** pList, int Amount);
+void PrintList(struGrafikkarte *pList, int Amount);
+void PrintSingleItem(struGrafikkarte* pPrint);
 void QuitApplication();
 void PrintAndSelectUserInterface();
 char GenerateRandomChar();
@@ -58,6 +59,7 @@ struGrafikkarte *CreateList(int Amount)
 		{
 			pEnd->pNext = pNewElement;
 		}
+		printf("%p", pStart);
 		return pStart;
 	}
 }
@@ -127,8 +129,15 @@ void SortList() {
 
 }
 
-void PrintList(struGrafikkarte** pList, int Amount) {
+void PrintList(struGrafikkarte *pList, int Amount) {
+	for (int counter = 0; counter == Amount; counter++) {
+		struGrafikkarte* pOut = pList + counter;
+		PrintSingleItem(pOut);
+	}
+}
 
+void PrintSingleItem(struGrafikkarte *pPrint) {
+	printf("Name: %s, Hersteller: %s, Herstellungsjahr: %s", pPrint->name, pPrint->hersteller, pPrint->herstellungsjahr);
 }
 
 void QuitApplication() {
@@ -139,7 +148,7 @@ void QuitApplication() {
 
 /*
 *Autor: Leo Scherer
-*Prints the Main Menu
+*Prints the Main Menu and lets the User select a Function
 *@Param
 *@Return
 */
@@ -147,19 +156,23 @@ void QuitApplication() {
 void PrintAndSelectUserInterface()
 {
 	printf("\n\n--------------------\n");
-	printf("--- Main Menu ---\n");
+	printf("--- Hauptmenu ---\n");
 	printf("[a] Liste erstellen\n");
 	printf("[s] Liste sortieren\n");
-	printf("[l] Liste l\94schen\n");
-	printf("[e] Element l\94chen\n");
+	printf("[l] Liste l\x94schen\n");
+	printf("[e] Element l\x94schen\n");
 	printf("[p] Liste ausgeben\n");
 	printf("[v] Programm verlassen\n");
 	printf("--------------------\n");
 	char selection;
 	scanf_s("%c", &selection);
+	struGrafikkarte* pStart = 0;
+	int Amount = 0;
 	switch (selection) {
 	case 'a':
-		CreateList(NULL);
+		printf("Wie viele Items soll die Liste beinhaten?	");
+		scanf_s("%i", &Amount);
+		pStart = CreateList(Amount);
 		break;
 	case 's':
 		SortList();
@@ -171,7 +184,7 @@ void PrintAndSelectUserInterface()
 		DeleteElement(NULL, NULL, NULL);
 		break;
 	case 'p':
-		PrintList(NULL, NULL);
+		PrintList(pStart, Amount);
 		break;
 	case 'v':
 		QuitApplication();
@@ -181,5 +194,7 @@ void PrintAndSelectUserInterface()
 
 void main()
 {
-	PrintAndSelectUserInterface();
+	while (true) {
+		PrintAndSelectUserInterface();
+	}
 }
