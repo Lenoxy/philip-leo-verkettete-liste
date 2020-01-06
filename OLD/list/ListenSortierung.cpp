@@ -156,6 +156,7 @@ void PrintPerson(struPerson *pPerson) {
  * Diese Schritte koennen mehrmals gemacht werden (Rekursion)
  * pList: Referenz auf die Liste
  */
+
 void MergeSort(struPerson **pList) {
     struPerson *head = *pList;
     struPerson *a;

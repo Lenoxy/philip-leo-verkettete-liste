@@ -204,7 +204,7 @@ void main()
 			SortList();
 			break;
 		case 'l':
-			DeleteList(NULL);
+			DeleteList(&pStart);
 			break;
 		case 'e':
 			DeleteElement(NULL, NULL, NULL);
