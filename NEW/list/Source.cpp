@@ -32,11 +32,15 @@ char GenerateRandomYear();
 
 struGrafikkarte *CreateList(int Amount)
 {
+
 	struGrafikkarte *pStart = NULL;
 	struGrafikkarte *pEnd = NULL;
 
 	for (int i = 0; i < Amount; i++)
 	{
+
+		printf("%i \n", i);
+
 		char Name = GenerateRandomChar();
 		char Hersteller = GenerateRandomChar();
 		int Herstellungsjahr = GenerateRandomYear();
@@ -59,9 +63,11 @@ struGrafikkarte *CreateList(int Amount)
 		{
 			pEnd->pNext = pNewElement;
 		}
-		printf("%p", pStart);
-		return pStart;
+	
+		pEnd = pNewElement;
 	}
+
+	return pStart;
 }
 
 /*
@@ -172,6 +178,7 @@ void PrintAndSelectUserInterface()
 	case 'a':
 		printf("Wie viele Items soll die Liste beinhaten?	");
 		scanf_s("%i", &Amount);
+		printf("Hallo");
 		pStart = CreateList(Amount);
 		break;
 	case 's':
