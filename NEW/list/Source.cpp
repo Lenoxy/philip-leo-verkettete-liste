@@ -1,5 +1,6 @@
 #include "stdlib.h"
 #include "stdio.h"
+#include "string.h"
 
 // Typedefinition
 typedef struct Grafikkarte
@@ -21,6 +22,7 @@ void PrintSingleItem(struGrafikkarte* pPrint);
 void QuitApplication();
 char GenerateRandomChar();
 int GenerateRandomYear();
+void PrintMainMenuToConsole();
 
 /*
 *Autor: Philip Baumann
@@ -117,16 +119,35 @@ void DeleteList(struGrafikkarte **pList)
 	*pList = NULL;
 }
 
-void DeleteElement(struGrafikkarte **pList, char Name, char hersteller)
+void DeleteElement(struGrafikkarte **pList, char hersteller, char name)
 {
 	struGrafikkarte *pCurrent = *pList;
 	struGrafikkarte *pPrevious = NULL;
 
 	while (pCurrent != NULL)
 	{
-		// if ()
-		// TODO @Philip
-	}
+
+			if (strncmp(pCurrent->hersteller, &hersteller, 1) == 0 && strncmp(pCurrent->name, &hersteller, 1))
+			{
+				if (pPrevious == NULL)
+				{
+					*pList = pCurrent->pNext;
+					free(pCurrent);
+					pCurrent = *pList;
+				}
+				else
+				{
+					pPrevious->pNext = pCurrent->pNext;
+					free(pCurrent);
+					pCurrent = pPrevious->pNext;
+				}
+			}
+			else
+			{
+				pPrevious = pCurrent;
+				pCurrent = pCurrent->pNext;
+			}
+		}
 }
 
 void SortList() {
@@ -165,6 +186,19 @@ void QuitApplication() {
 	exit(1);
 }
 
+void PrintMainMenuToConsole()
+{
+	printf("\n\n--------------------\n");
+	printf("--- Hauptmenu ---\n");
+	printf("[a] Liste erstellen\n");
+	printf("[s] Liste sortieren\n");
+	printf("[l] Liste l\x94schen\n");
+	printf("[e] Element l\x94schen\n");
+	printf("[p] Liste ausgeben\n");
+	printf("[v] Programm verlassen\n");
+	printf("--------------------\n");
+}
+
 
 
 /*
@@ -176,46 +210,51 @@ void QuitApplication() {
 
 void main()
 {
+
+	char Hersteller;
+	char Name;
 	
 	char selection;
 	struGrafikkarte* pStart = NULL;
 	int Amount = 0;
+	PrintMainMenuToConsole();
 	while (true) 
 	{
-		printf("\n\n--------------------\n");
-		printf("--- Hauptmenu ---\n");
-		printf("[a] Liste erstellen\n");
-		printf("[s] Liste sortieren\n");
-		printf("[l] Liste l\x94schen\n");
-		printf("[e] Element l\x94schen\n");
-		printf("[p] Liste ausgeben\n");
-		printf("[v] Programm verlassen\n");
-		printf("--------------------\n");
-
 		scanf_s("%c", &selection);
 		switch (selection) {
 		case 'a':
 			printf("Wie viele Items soll die Liste beinhaten?	");
 			scanf_s("%i", &Amount);
-			printf("Hallo");
 			pStart = CreateList(Amount);
+			PrintMainMenuToConsole();
 			break;
 		case 's':
 			SortList();
+			PrintMainMenuToConsole();
 			break;
 		case 'l':
 			DeleteList(&pStart);
+			PrintMainMenuToConsole();
 			break;
 		case 'e':
-			DeleteElement(NULL, NULL, NULL);
+			printf("Hersteller: ");
+			scanf_s(" %c", &Hersteller);
+			printf("Name: ");
+			scanf_s(" %c", &Name);
+
+			DeleteElement(&pStart, Hersteller, Name);
+			PrintMainMenuToConsole();
 			break;
 		case 'p':
 			printf("%i", Amount);
 			PrintList(&pStart, Amount);
+			PrintMainMenuToConsole();
 			break;
 		case 'v':
 			QuitApplication();
+			PrintMainMenuToConsole();
 			break;
 		}
 	}
 }
+
