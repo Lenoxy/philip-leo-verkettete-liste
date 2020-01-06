@@ -16,10 +16,9 @@ struGrafikkarte *CreateList(int Amount);
 void DeleteList(struGrafikkarte **pList);
 void DeleteElement(struGrafikkarte **pList, char name, char hersteller);
 void SortList();
-void PrintList(struGrafikkarte *pList, int Amount);
+void PrintList(struGrafikkarte **pList, int Amount);
 void PrintSingleItem(struGrafikkarte* pPrint);
 void QuitApplication();
-void PrintAndSelectUserInterface();
 char GenerateRandomChar();
 char GenerateRandomYear();
 
@@ -94,7 +93,7 @@ char GenerateRandomChar()
 char GenerateRandomYear()
 {
 	int value = 1900;
-	value + rand() % 118;
+	value = value + rand() % 118;
 	return value;
 }
 
@@ -135,19 +134,36 @@ void SortList() {
 
 }
 
-void PrintList(struGrafikkarte *pList, int Amount) {
-	for (int counter = 0; counter == Amount; counter++) {
-		struGrafikkarte* pOut = pList + counter;
-		PrintSingleItem(pOut);
+void PrintList(struGrafikkarte **pList, int Amount) {
+	int counter = 0;
+	int index;
+
+	printf("Hallo");
+
+	if (Amount == 0) 
+	{
+		index = -1;
+	}
+	else
+	{
+		index = Amount;
+	}
+
+	struGrafikkarte* pOutput = *pList;
+	while (pOutput != NULL && counter != index)
+	{
+		PrintSingleItem(pOutput);
+		pOutput = pOutput->pNext;
+		counter++;
 	}
 }
 
 void PrintSingleItem(struGrafikkarte *pPrint) {
-	printf("Name: %s, Hersteller: %s, Herstellungsjahr: %s", pPrint->name, pPrint->hersteller, pPrint->herstellungsjahr);
+	printf("Name: %s, Hersteller: %s, Herstellungsjahr: %i \n", pPrint->name, pPrint->hersteller, pPrint->herstellungsjahr);
 }
 
 void QuitApplication() {
-	exit;
+	exit(1);
 }
 
 
@@ -159,49 +175,48 @@ void QuitApplication() {
 *@Return
 */
 
-void PrintAndSelectUserInterface()
-{
-	printf("\n\n--------------------\n");
-	printf("--- Hauptmenu ---\n");
-	printf("[a] Liste erstellen\n");
-	printf("[s] Liste sortieren\n");
-	printf("[l] Liste l\x94schen\n");
-	printf("[e] Element l\x94schen\n");
-	printf("[p] Liste ausgeben\n");
-	printf("[v] Programm verlassen\n");
-	printf("--------------------\n");
-	char selection;
-	scanf_s("%c", &selection);
-	struGrafikkarte* pStart = 0;
-	int Amount = 0;
-	switch (selection) {
-	case 'a':
-		printf("Wie viele Items soll die Liste beinhaten?	");
-		scanf_s("%i", &Amount);
-		printf("Hallo");
-		pStart = CreateList(Amount);
-		break;
-	case 's':
-		SortList();
-		break;
-	case 'l':
-		DeleteList(NULL);
-		break;
-	case 'e':
-		DeleteElement(NULL, NULL, NULL);
-		break;
-	case 'p':
-		PrintList(pStart, Amount);
-		break;
-	case 'v':
-		QuitApplication();
-		break;
-	}
-}
-
 void main()
 {
-	while (true) {
-		PrintAndSelectUserInterface();
+	
+	char selection;
+	struGrafikkarte* pStart = NULL;
+	int Amount = 0;
+	while (true) 
+	{
+		printf("\n\n--------------------\n");
+		printf("--- Hauptmenu ---\n");
+		printf("[a] Liste erstellen\n");
+		printf("[s] Liste sortieren\n");
+		printf("[l] Liste l\x94schen\n");
+		printf("[e] Element l\x94schen\n");
+		printf("[p] Liste ausgeben\n");
+		printf("[v] Programm verlassen\n");
+		printf("--------------------\n");
+
+		scanf_s("%c", &selection);
+		switch (selection) {
+		case 'a':
+			printf("Wie viele Items soll die Liste beinhaten?	");
+			scanf_s("%i", &Amount);
+			printf("Hallo");
+			pStart = CreateList(Amount);
+			break;
+		case 's':
+			SortList();
+			break;
+		case 'l':
+			DeleteList(NULL);
+			break;
+		case 'e':
+			DeleteElement(NULL, NULL, NULL);
+			break;
+		case 'p':
+			printf("%i", Amount);
+			PrintList(&pStart, Amount);
+			break;
+		case 'v':
+			QuitApplication();
+			break;
+		}
 	}
 }
