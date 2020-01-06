@@ -20,7 +20,7 @@ void PrintList(struGrafikkarte **pList, int Amount);
 void PrintSingleItem(struGrafikkarte* pPrint);
 void QuitApplication();
 char GenerateRandomChar();
-char GenerateRandomYear();
+int GenerateRandomYear();
 
 /*
 *Autor: Philip Baumann
@@ -90,10 +90,9 @@ char GenerateRandomChar()
 *@Return random year as an integer
 */
 
-char GenerateRandomYear()
+int GenerateRandomYear()
 {
-	int value = 1900;
-	value = value + rand() % 118;
+	int value = 1900 + rand() % 118;
 	return value;
 }
 
