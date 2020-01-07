@@ -8,16 +8,16 @@ typedef struct Grafikkarte
 	char name[40];
 	char hersteller[40];
 	int herstellungsjahr;
-	struct Grafikkarte *pNext;
-	struct Grafikkarte *pPrev;
+	struct Grafikkarte* pNext;
+	struct Grafikkarte* pPrev;
 } struGrafikkarte;
 
 // Function declaration
-struGrafikkarte *CreateList(int Amount);
-void DeleteList(struGrafikkarte **pList);
-void DeleteElement(struGrafikkarte **pList, char name, char hersteller);
-void SortList();
-void PrintList(struGrafikkarte **pList, int Amount);
+struGrafikkarte* CreateList(int Amount);
+void DeleteList(struGrafikkarte** pList);
+void DeleteElement(struGrafikkarte** pList, char name, char hersteller);
+void SortList(struGrafikkarte pList, int length);
+void PrintList(struGrafikkarte** pList, int Amount);
 void PrintSingleItem(struGrafikkarte* pPrint);
 void QuitApplication();
 char GenerateRandomChar();
@@ -31,22 +31,19 @@ void PrintMainMenuToConsole();
 *@Return pStart
 */
 
-struGrafikkarte *CreateList(int Amount)
+struGrafikkarte* CreateList(int Amount)
 {
 
-	struGrafikkarte *pStart = NULL;
-	struGrafikkarte *pEnd = NULL;
+	struGrafikkarte* pStart = NULL;
+	struGrafikkarte* pEnd = NULL;
 
 	for (int i = 0; i < Amount; i++)
 	{
-
-		printf("%i \n", i);
-
 		char Name = GenerateRandomChar();
 		char Hersteller = GenerateRandomChar();
 		int Herstellungsjahr = GenerateRandomYear();
 
-		struGrafikkarte *pNewElement = (struGrafikkarte *)malloc(sizeof(struGrafikkarte));
+		struGrafikkarte* pNewElement = (struGrafikkarte*)malloc(sizeof(struGrafikkarte));
 
 		pNewElement->name[0] = Name;
 		pNewElement->name[1] = '\0';
@@ -64,7 +61,7 @@ struGrafikkarte *CreateList(int Amount)
 		{
 			pEnd->pNext = pNewElement;
 		}
-	
+
 		pEnd = pNewElement;
 	}
 
@@ -75,7 +72,7 @@ struGrafikkarte *CreateList(int Amount)
 *Autor: Philip Baumann
 *Generates a random letter in the alaphabet
 *@Param
-*@Return random letter 
+*@Return random letter
 */
 
 char GenerateRandomChar()
@@ -105,10 +102,10 @@ int GenerateRandomYear()
 *@Return
 */
 
-void DeleteList(struGrafikkarte **pList)
+void DeleteList(struGrafikkarte** pList)
 {
-	struGrafikkarte *pCurrent = *pList;
-	struGrafikkarte *pNext = NULL;
+	struGrafikkarte* pCurrent = *pList;
+	struGrafikkarte* pNext = NULL;
 
 	while (pCurrent != NULL)
 	{
@@ -119,48 +116,62 @@ void DeleteList(struGrafikkarte **pList)
 	*pList = NULL;
 }
 
-void DeleteElement(struGrafikkarte **pList, char hersteller, char name)
+void DeleteElement(struGrafikkarte** pList, char hersteller, char name)
 {
-	struGrafikkarte *pCurrent = *pList;
-	struGrafikkarte *pPrevious = NULL;
+	struGrafikkarte* pCurrent = *pList;
+	struGrafikkarte* pPrevious = NULL;
 
 	while (pCurrent != NULL)
 	{
 
-			if (strncmp(pCurrent->hersteller, &hersteller, 1) == 0 && strncmp(pCurrent->name, &hersteller, 1))
+		if (strncmp(pCurrent->hersteller, &hersteller, 1) == 0 && strncmp(pCurrent->name, &hersteller, 1))
+		{
+			if (pPrevious == NULL)
 			{
-				if (pPrevious == NULL)
-				{
-					*pList = pCurrent->pNext;
-					free(pCurrent);
-					pCurrent = *pList;
-				}
-				else
-				{
-					pPrevious->pNext = pCurrent->pNext;
-					free(pCurrent);
-					pCurrent = pPrevious->pNext;
-				}
+				*pList = pCurrent->pNext;
+				free(pCurrent);
+				pCurrent = *pList;
 			}
 			else
 			{
-				pPrevious = pCurrent;
-				pCurrent = pCurrent->pNext;
+				pPrevious->pNext = pCurrent->pNext;
+				free(pCurrent);
+				pCurrent = pPrevious->pNext;
 			}
 		}
+		else
+		{
+			pPrevious = pCurrent;
+			pCurrent = pCurrent->pNext;
+		}
+	}
 }
 
-void SortList() {
+void SortList(struGrafikkarte* pList, int length) {
+	struGrafikkarte* pStart = pList;
+	int oCounter, iCounter;
+	printf("Length: %i\n", length);
+	for (oCounter = 0; oCounter !=length; oCounter++) {
+		pList = pStart;
+		while (pList->pNext != nullptr) {
+			if ((pList->herstellungsjahr) > (pList->pNext->herstellungsjahr)) {
+				printf("Swapping %i for %i\n", pList->herstellungsjahr, pList->pNext->herstellungsjahr);
+				int temp = pList->herstellungsjahr;
+				pList->herstellungsjahr = pList->pNext->herstellungsjahr;
+				pList->pNext->herstellungsjahr = temp;
 
+			}
+			pList = pList->pNext;
+		}
+	}
 }
 
-void PrintList(struGrafikkarte **pList, int Amount) {
+
+void PrintList(struGrafikkarte** pList, int Amount) {
 	int counter = 0;
 	int index;
 
-	printf("Hallo");
-
-	if (Amount == 0) 
+	if (Amount == 0)
 	{
 		index = -1;
 	}
@@ -178,7 +189,7 @@ void PrintList(struGrafikkarte **pList, int Amount) {
 	}
 }
 
-void PrintSingleItem(struGrafikkarte *pPrint) {
+void PrintSingleItem(struGrafikkarte* pPrint) {
 	printf("Name: %s, Hersteller: %s, Herstellungsjahr: %i \n", pPrint->name, pPrint->hersteller, pPrint->herstellungsjahr);
 }
 
@@ -213,48 +224,43 @@ void main()
 
 	char Hersteller;
 	char Name;
-	
+
 	char selection;
 	struGrafikkarte* pStart = NULL;
 	int Amount = 0;
-	PrintMainMenuToConsole();
-	while (true) 
+	while (true)
 	{
+		PrintMainMenuToConsole();
 		scanf_s("%c", &selection);
 		switch (selection) {
 		case 'a':
 			printf("Wie viele Items soll die Liste beinhaten?	");
 			scanf_s("%i", &Amount);
 			pStart = CreateList(Amount);
-			PrintMainMenuToConsole();
 			break;
 		case 's':
-			SortList();
-			PrintMainMenuToConsole();
+			SortList(pStart, Amount);
 			break;
 		case 'l':
 			DeleteList(&pStart);
-			PrintMainMenuToConsole();
 			break;
 		case 'e':
 			printf("Hersteller: ");
 			scanf_s(" %c", &Hersteller);
 			printf("Name: ");
 			scanf_s(" %c", &Name);
-
 			DeleteElement(&pStart, Hersteller, Name);
-			PrintMainMenuToConsole();
 			break;
 		case 'p':
 			printf("%i", Amount);
 			PrintList(&pStart, Amount);
-			PrintMainMenuToConsole();
 			break;
 		case 'v':
 			QuitApplication();
-			PrintMainMenuToConsole();
 			break;
 		}
+
+
 	}
 }
 
