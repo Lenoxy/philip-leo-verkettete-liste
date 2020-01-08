@@ -116,6 +116,13 @@ void DeleteList(struGrafikkarte** pList)
 	*pList = NULL;
 }
 
+/*
+*Autor: Philip Baumann
+*Deletes a single element in the list by comparing string and then rearranging pointers
+*@Param pointer, char, char
+*@Return void
+*/
+
 void DeleteElement(struGrafikkarte** pList, char hersteller, char name)
 {
 	struGrafikkarte* pCurrent = *pList;
@@ -147,6 +154,13 @@ void DeleteElement(struGrafikkarte** pList, char hersteller, char name)
 	}
 }
 
+/*
+*Autor: Leo Scherer
+*Sorts list by using the bubblesort methodel
+*@Param pointer, int
+*@Return void
+*/
+
 void SortList(struGrafikkarte* pList, int length) {
 	struGrafikkarte* pStart = pList;
 	int oCounter, iCounter;
@@ -166,6 +180,12 @@ void SortList(struGrafikkarte* pList, int length) {
 	}
 }
 
+/*
+*Autor: Philip Baumann
+*Prints entire list to the console. By iterating through the list which is possible due to the pNext which gets set to the current structure element
+*@Param pointer, int
+*@Return void
+*/
 
 void PrintList(struGrafikkarte** pList, int Amount) {
 	int counter = 0;
@@ -189,13 +209,36 @@ void PrintList(struGrafikkarte** pList, int Amount) {
 	}
 }
 
+/*
+*Autor: Philip Baumann
+*Prints single element to the console
+*@Param pointer
+*@Return void
+*/
+
 void PrintSingleItem(struGrafikkarte* pPrint) {
 	printf("Name: %s, Hersteller: %s, Herstellungsjahr: %i \n", pPrint->name, pPrint->hersteller, pPrint->herstellungsjahr);
 }
 
-void QuitApplication() {
+
+/*
+*Autor: Leo Scherer
+*the application and deletes list aswell as freeing the memory
+*@Param pointer
+*@Return void
+*/
+
+void QuitApplication(struGrafikkarte** pList) {
+	DeleteList(pList);
 	exit(1);
 }
+
+/*
+*Autor: Leo Scherer
+*Prints Mainmenu to the console
+*@Param 
+*@Return void
+*/
 
 void PrintMainMenuToConsole()
 {
@@ -256,11 +299,9 @@ void main()
 			PrintList(&pStart, Amount);
 			break;
 		case 'v':
-			QuitApplication();
+			QuitApplication(&pStart);
 			break;
 		}
-
-
 	}
 }
 
