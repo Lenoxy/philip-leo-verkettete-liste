@@ -231,7 +231,7 @@ void main()
 	while (true)
 	{
 		PrintMainMenuToConsole();
-		scanf_s("%c", &selection);
+		scanf_s(" %c", &selection);
 		switch (selection) {
 		case 'a':
 			printf("Wie viele Items soll die Liste beinhaten?	");
