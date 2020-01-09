@@ -161,21 +161,20 @@ void DeleteElement(struGrafikkarte** pList, char hersteller, char name)
 *@Return void
 */
 
-void SortList(struGrafikkarte* pList, int length) {
-	struGrafikkarte* pStart = pList;
+void SortList(struGrafikkarte* pStartOfList, int length) {
 	int oCounter, iCounter;
 	printf("Length: %i\n", length);
 	for (oCounter = 0; oCounter !=length; oCounter++) {
-		pList = pStart;
-		while (pList->pNext != nullptr) {
-			if ((pList->herstellungsjahr) > (pList->pNext->herstellungsjahr)) {
-				printf("Swapping %i for %i\n", pList->herstellungsjahr, pList->pNext->herstellungsjahr);
-				int temp = pList->herstellungsjahr;
-				pList->herstellungsjahr = pList->pNext->herstellungsjahr;
-				pList->pNext->herstellungsjahr = temp;
+		struGrafikkarte *pIndex = pStartOfList;
+		while (pIndex->pNext != nullptr) {
+			if ((pIndex->herstellungsjahr) > (pIndex->pNext->herstellungsjahr)) {
+				printf("Swapping %i for %i\n", pIndex->herstellungsjahr, pIndex->pNext->herstellungsjahr);
+				int temp = pIndex->herstellungsjahr;
+				pIndex->herstellungsjahr = pIndex->pNext->herstellungsjahr;
+				pIndex->pNext->herstellungsjahr = temp;
 
 			}
-			pList = pList->pNext;
+			pIndex = pIndex->pNext;
 		}
 	}
 }

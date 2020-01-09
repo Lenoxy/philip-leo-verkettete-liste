@@ -1,16 +1,16 @@
 ﻿  Source.cpp
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(152,16): warning C4101: 'iCounter': unreferenced local variable
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(223,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(234,11): warning C4473: 'scanf_s' : not enough arguments passed for format string
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(234,11): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(234,11): message : the missing variadic argument 2 is required by format string '%c'
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(234,11): message : this argument is used as a buffer size
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(249,12): warning C4473: 'scanf_s' : not enough arguments passed for format string
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(249,12): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(249,12): message : the missing variadic argument 2 is required by format string '%c'
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(249,12): message : this argument is used as a buffer size
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(251,12): warning C4473: 'scanf_s' : not enough arguments passed for format string
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(251,12): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(251,12): message : the missing variadic argument 2 is required by format string '%c'
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(251,12): message : this argument is used as a buffer size
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(165,16): warning C4101: 'iCounter': unreferenced local variable
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(265,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(276,11): warning C4473: 'scanf_s' : not enough arguments passed for format string
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(276,11): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(276,11): message : the missing variadic argument 2 is required by format string '%c'
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(276,11): message : this argument is used as a buffer size
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(291,12): warning C4473: 'scanf_s' : not enough arguments passed for format string
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(291,12): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(291,12): message : the missing variadic argument 2 is required by format string '%c'
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(291,12): message : this argument is used as a buffer size
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(293,12): warning C4473: 'scanf_s' : not enough arguments passed for format string
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(293,12): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(293,12): message : the missing variadic argument 2 is required by format string '%c'
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(293,12): message : this argument is used as a buffer size
   list.vcxproj -> D:\data\git\philip-leo-verkettete-liste\NEW\Debug\list.exe
