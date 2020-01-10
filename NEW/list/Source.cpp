@@ -43,7 +43,7 @@ struGrafikkarte* CreateList(int Amount)
 		char Name = GenerateRandomChar();
 		char Hersteller = GenerateRandomChar();
 		int Herstellungsjahr = GenerateRandomYear();
-		
+
 		struGrafikkarte* pNewElement = (struGrafikkarte*)malloc(sizeof(struGrafikkarte));
 
 		pNewElement->name[0] = Name;
@@ -158,8 +158,8 @@ void DeleteElement(struGrafikkarte** pList, char hersteller, char name)
 
 struGrafikkarte* SortList(struGrafikkarte* pStartOfList, int length) {
 	int oCounter, iCounter;
-	for (oCounter = 0; oCounter < length-1; oCounter++) {
-		struGrafikkarte *pIndex = pStartOfList;
+	for (oCounter = 0; oCounter < length - 1; oCounter++) {
+		struGrafikkarte* pIndex = pStartOfList;
 		for (iCounter = 0; iCounter < length - oCounter - 1; iCounter++) {
 			if ((pIndex->herstellungsjahr) > (pIndex->pNext->herstellungsjahr)) {
 				printf("Swapping %i for %i\n", pIndex->herstellungsjahr, pIndex->pNext->herstellungsjahr);
@@ -180,7 +180,8 @@ struGrafikkarte* SortList(struGrafikkarte* pStartOfList, int length) {
 					pStartOfList = pIndex->pPrev;
 				}
 
-			} else {
+			}
+			else {
 				pIndex = pIndex->pNext;
 			}
 		}
@@ -203,7 +204,7 @@ void PrintList(struGrafikkarte* pStart) {
 			pOutput = pOutput->pNext;
 		} while (pOutput != pStart);
 	}
-	
+
 }
 
 /*
@@ -221,7 +222,7 @@ void QuitApplication(struGrafikkarte** pList) {
 /*
 *Autor: Leo Scherer
 *Prints Mainmenu to the console
-*@Param 
+*@Param
 *@Return void
 */
 
