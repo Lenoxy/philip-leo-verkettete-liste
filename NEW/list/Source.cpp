@@ -259,7 +259,7 @@ void PrintList(struGrafikkarte* pStart) {
 	struGrafikkarte* pOutput = pStart;
 	int Amount;
 	int index = 0;
-	printf("Geben Sie die Anzahl Elemente, welche ausgegeben werden sollen in Form einer Integerzahl ein. Falls alle Elemente ausgegeben werden solle geben sie 0 ein.\n")
+	printf("Geben Sie die Anzahl Elemente, welche ausgegeben werden sollen in Form einer Integerzahl ein. Falls alle Elemente ausgegeben werden solle geben sie 0 ein.\n");
 	scanf_s("%i", &Amount);
 
 	if (Amount == 0) {
