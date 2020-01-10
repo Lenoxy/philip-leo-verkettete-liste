@@ -1,10 +1,9 @@
 ﻿  Source.cpp
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(125,9): warning C4477: "printf": Die Formatzeichenfolge "%i" erfordert ein Argument vom Typ "int", das variadic-Argument "1" weist aber den Typ "char *" auf.
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(273,1): warning C4326: Der Rückgabetyp von "main" sollte "int" und nicht "void" sein
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(284,11): warning C4473: "scanf_s": nicht genügend Argumente für Formatzeichenfolge übergeben
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(284,11): message : Platzhalter und deren Parameter erwarten 2 variadic-Argumente, es wurden aber 1 variadic-Argumente bereitgestellt.
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(284,11): message : Das fehlende variadic-Argument "2" ist für die Zeichenfolge "%c" erforderlich.
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(284,11): message : Dieses Argument wird als Puffergröße verwendet.
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(276,7): warning C4101: "Name": Unreferenzierte lokale Variable
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(275,7): warning C4101: "Hersteller": Unreferenzierte lokale Variable
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(330,1): warning C4326: Der Rückgabetyp von "main" sollte "int" und nicht "void" sein
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(341,11): warning C4473: "scanf_s": nicht genügend Argumente für Formatzeichenfolge übergeben
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(341,11): message : Platzhalter und deren Parameter erwarten 2 variadic-Argumente, es wurden aber 1 variadic-Argumente bereitgestellt.
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(341,11): message : Das fehlende variadic-Argument "2" ist für die Zeichenfolge "%c" erforderlich.
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(341,11): message : Dieses Argument wird als Puffergröße verwendet.
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(333,7): warning C4101: "Name": Unreferenzierte lokale Variable
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(332,7): warning C4101: "Hersteller": Unreferenzierte lokale Variable
   list.vcxproj -> C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\Debug\list.exe
