@@ -12,12 +12,12 @@ typedef struct Grafikkarte
 	struct Grafikkarte* pPrev;
 } struGrafikkarte;
 
-enum attributes{name = 1, hersteller, herstellungsjahr, undefined};
+enum attributes { name = 1, hersteller, herstellungsjahr, undefined };
 
 // Function declaration
 struGrafikkarte* CreateList(int Amount);
 void DeleteList(struGrafikkarte* pList);
-void DeleteElement(struGrafikkarte* pList);
+struGrafikkarte* DeleteElement(struGrafikkarte* pList);
 struGrafikkarte* SortList(struGrafikkarte* pStartOfList, int length);
 void PrintList(struGrafikkarte* pList);
 void QuitApplication(struGrafikkarte** pList);
@@ -40,7 +40,7 @@ struGrafikkarte* CreateList(int Amount)
 
 	for (int i = 0; i < Amount; i++)
 	{
-		
+
 
 		struGrafikkarte* pNewElement = (struGrafikkarte*)malloc(sizeof(struGrafikkarte));
 
@@ -105,7 +105,7 @@ int GenerateRandomYear()
 *@Return
 */
 
-void DeleteList(struGrafikkarte* pStart){
+void DeleteList(struGrafikkarte* pStart) {
 	struGrafikkarte* pCurrent = pStart;
 	do {
 		struGrafikkarte* pTemp = pCurrent;
@@ -121,75 +121,60 @@ void DeleteList(struGrafikkarte* pStart){
 *@Return void
 */
 
-void DeleteElement(struGrafikkarte* pList)
+struGrafikkarte* DeleteElement(struGrafikkarte* pStart)
 {
-	//int element;
-	//printf("Wähle eines der 3 Elemente aus?");
-	//printf("1 = Name, 2 = hersteller, 3 = herstellungsjahr");
-	//scanf_s("%i", &element);
+	int element;
+	printf("Wähle eines der 3 Elemente aus?");
+	printf("1 = Name, 2 = Hersteller, 3 = Herstellungsjahr\n");
+	scanf_s("%i", &element);
+
+	char searchString[5];
+	printf("Gib den Namen des Elements ein\n");
+	gets_s(searchString);
+	gets_s(searchString);
 
 
+	struGrafikkarte* pCurrent = pStart;
 
+	do
+	{
+		switch (element) {
+		case name:
+			break;
+		case hersteller:
+			if (strcmp(pCurrent->hersteller, searchString) == 0 && strcmp(pCurrent->name, searchString) == 0) {
+				struGrafikkarte* pTpreDel = pCurrent->pPrev;
+				struGrafikkarte* pTafterDel = pCurrent->pNext;
+				pTpreDel->pNext = pTafterDel;
+				pTafterDel->pPrev = pTpreDel;
+				free(pCurrent);
 
-	//struGrafikkarte* pCurrent = pList;
+				if (pCurrent == pStart) {
+					pStart = pCurrent->pNext;
+				}
+			}
 
-	//struGrafikkarte* pPrevious = NULL;
+			break;
+		case herstellungsjahr:
+			break;
+		case undefined:
+			break;
+		default:
+			break;
+		}
 
-	//do 
-	//{
-	//	/*switch (attribute)
-	//	{
-	//	case name:
-	//		break;
-	//	case hersteller:
-	//		break;
-	//	case herstellungsjahr:
-	//		break;
-	//	case undefined:
-	//		break;
-	//	default:
-	//		break;
-	//	}*/
-	//	printf("t");
-	//	/*if (strcmp(pCurrent->hersteller, hersteller) == 0 && strcmp(pCurrent->name, hersteller) == 0)
-	//	{*/
-	//		printf("hallo");
-	//		pCurrent->pPrev->pNext = pCurrent->pNext;
-	//		pCurrent->pNext->pPrev = pCurrent->pPrev;
-	//		free(pCurrent);
+		pCurrent = pCurrent->pNext;
 
-	//		if (pCurrent == pList) {
-	//			pList = pCurrent->pNext;
-	//		}
+	} while (pCurrent != pStart);
 
-
-
-	//	//	if (pPrevious == NULL)
-	//	//	{
-	//	//		pList = pCurrent->pNext;
-	//	//		free(pCurrent);
-	//	//		pCurrent = pList;
-	//	//	}
-	//	//	else
-	//	//	{
-	//	//		pPrevious->pNext = pCurrent->pNext;
-	//	//		free(pCurrent);
-	//	//		pCurrent = pPrevious->pNext;
-	//	//	}
-	//	//}
-	//	//else
-	//	//{
-	//	//	pPrevious = pCurrent;
-	//	//	pCurrent = pCurrent->pNext;
-	//	}
-	//} while (pCurrent != pList);
+	return pStart;
 }
 
 /*
 *Autor: Leo Scherer
 *Sorts list by using the bubblesort methode
 *@Param pointer, int
-*@Return 
+*@Return
 */
 
 struGrafikkarte* SortList(struGrafikkarte* pStartOfList, int length) {
@@ -198,62 +183,62 @@ struGrafikkarte* SortList(struGrafikkarte* pStartOfList, int length) {
 	int decision;
 	scanf_s(" %i", &decision);
 
-		for (oCounter = 0; oCounter < length - 1; oCounter++) {
-			struGrafikkarte* pIndex = pStartOfList;
-			for (iCounter = 0; iCounter < length - oCounter - 1; iCounter++) {
-				if (decision == 1) {
-					if ((pIndex->herstellungsjahr) > (pIndex->pNext->herstellungsjahr)) {
-						printf("Swapping %i for %i\n", pIndex->herstellungsjahr, pIndex->pNext->herstellungsjahr);
+	for (oCounter = 0; oCounter < length - 1; oCounter++) {
+		struGrafikkarte* pIndex = pStartOfList;
+		for (iCounter = 0; iCounter < length - oCounter - 1; iCounter++) {
+			if (decision == 1) {
+				if ((pIndex->herstellungsjahr) > (pIndex->pNext->herstellungsjahr)) {
+					printf("Swapping %i for %i\n", pIndex->herstellungsjahr, pIndex->pNext->herstellungsjahr);
 
-						struGrafikkarte* pTempNext = pIndex->pNext;
-						struGrafikkarte* pTempPrev = pIndex->pPrev;
+					struGrafikkarte* pTempNext = pIndex->pNext;
+					struGrafikkarte* pTempPrev = pIndex->pPrev;
 
-						pIndex->pNext = pIndex->pNext->pNext;
-						pIndex->pNext->pPrev = pIndex;
+					pIndex->pNext = pIndex->pNext->pNext;
+					pIndex->pNext->pPrev = pIndex;
 
-						pIndex->pPrev = pTempNext;
-						pIndex->pPrev->pNext = pIndex;
+					pIndex->pPrev = pTempNext;
+					pIndex->pPrev->pNext = pIndex;
 
-						pIndex->pPrev->pPrev = pTempPrev;
-						pIndex->pPrev->pPrev->pNext = pIndex->pPrev;
+					pIndex->pPrev->pPrev = pTempPrev;
+					pIndex->pPrev->pPrev->pNext = pIndex->pPrev;
 
-						if (pStartOfList == pIndex) {
-							pStartOfList = pIndex->pPrev;
-						}
-
+					if (pStartOfList == pIndex) {
+						pStartOfList = pIndex->pPrev;
 					}
-					else {
-						pIndex = pIndex->pNext;
-					}
+
 				}
 				else {
-					if ((pIndex->herstellungsjahr) < (pIndex->pNext->herstellungsjahr)) {
-						printf("Swapping %i for %i\n", pIndex->herstellungsjahr, pIndex->pNext->herstellungsjahr);
-
-						struGrafikkarte* pTempNext = pIndex->pNext;
-						struGrafikkarte* pTempPrev = pIndex->pPrev;
-
-						pIndex->pNext = pIndex->pNext->pNext;
-						pIndex->pNext->pPrev = pIndex;
-
-						pIndex->pPrev = pTempNext;
-						pIndex->pPrev->pNext = pIndex;
-
-						pIndex->pPrev->pPrev = pTempPrev;
-						pIndex->pPrev->pPrev->pNext = pIndex->pPrev;
-
-						if (pStartOfList == pIndex) {
-							pStartOfList = pIndex->pPrev;
-						}
-
-					}
-					else {
-						pIndex = pIndex->pNext;
-					}
+					pIndex = pIndex->pNext;
 				}
-				
 			}
+			else {
+				if ((pIndex->herstellungsjahr) < (pIndex->pNext->herstellungsjahr)) {
+					printf("Swapping %i for %i\n", pIndex->herstellungsjahr, pIndex->pNext->herstellungsjahr);
+
+					struGrafikkarte* pTempNext = pIndex->pNext;
+					struGrafikkarte* pTempPrev = pIndex->pPrev;
+
+					pIndex->pNext = pIndex->pNext->pNext;
+					pIndex->pNext->pPrev = pIndex;
+
+					pIndex->pPrev = pTempNext;
+					pIndex->pPrev->pNext = pIndex;
+
+					pIndex->pPrev->pPrev = pTempPrev;
+					pIndex->pPrev->pPrev->pNext = pIndex->pPrev;
+
+					if (pStartOfList == pIndex) {
+						pStartOfList = pIndex->pPrev;
+					}
+
+				}
+				else {
+					pIndex = pIndex->pNext;
+				}
+			}
+
 		}
+	}
 
 	return pStartOfList;
 }
