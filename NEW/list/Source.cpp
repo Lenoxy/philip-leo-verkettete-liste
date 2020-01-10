@@ -19,6 +19,7 @@ struGrafikkarte* CreateList(int Amount);
 void DeleteList(struGrafikkarte* pList);
 struGrafikkarte* DeleteElement(struGrafikkarte* pList);
 struGrafikkarte* SortList(struGrafikkarte* pStartOfList, int length);
+struGrafikkarte* swapElement(struGrafikkarte* pIndex, struGrafikkarte* pStart);
 void PrintList(struGrafikkarte* pList);
 void QuitApplication(struGrafikkarte** pList);
 char GenerateRandomChar();
@@ -26,7 +27,7 @@ int GenerateRandomYear();
 void PrintMainMenuToConsole();
 
 /*
-*Autor: Philip Baumann
+*Autor: Philip Baumann / Leo Scherer
 *Creates a list with a defined amount of elements
 *@Param Amount of Element that will be created
 *@Return pStart
@@ -73,6 +74,7 @@ struGrafikkarte* CreateList(int Amount)
 	return pStart;
 }
 /*Generates a random letter in the alaphabet
+*Autor:  Philip Baumann
 *@Param
 *@Return random letter
 */
@@ -195,7 +197,6 @@ struGrafikkarte* DeleteElement(struGrafikkarte* pStart)
 
 				// if element is starting element of the list
 				if (pCurrent == pStart) {
-					printf("pCurrent==pStart");
 					pStart = pCurrent->pNext;
 				}
 
@@ -232,12 +233,14 @@ struGrafikkarte* DeleteElement(struGrafikkarte* pStart)
 */
 
 struGrafikkarte* SortList(struGrafikkarte* pStartOfList, int length) {
-
 	// User interaction and variable declaration 
 	int oCounter, iCounter;
-	printf("1 = Ascending, 2 = Descending");
-	int decision;
-	scanf_s(" %i", &decision);
+	printf("1 = Descending, 2 = Ascending\n");
+	int scendance;
+	scanf_s(" %i", &scendance);
+	printf("Sort by: (1 Name, 2 Hersteller, 3 Herstellungsjahr)\n");
+	int sortby;
+	scanf_s(" %i", &sortby);
 
 	// forloop x-cordination
 	for (oCounter = 0; oCounter < length - 1; oCounter++) {
@@ -245,67 +248,94 @@ struGrafikkarte* SortList(struGrafikkarte* pStartOfList, int length) {
 		// forloop y-cordination
 		for (iCounter = 0; iCounter < length - oCounter - 1; iCounter++) {
 			// users decision
-			if (decision == 1) {
-				// comparison
-				if ((pIndex->herstellungsjahr) > (pIndex->pNext->herstellungsjahr)) {
-					printf("Swapping %i for %i\n", pIndex->herstellungsjahr, pIndex->pNext->herstellungsjahr);
-					// switching pointer and rearranging subpointers
-					struGrafikkarte* pTempNext = pIndex->pNext;
-					struGrafikkarte* pTempPrev = pIndex->pPrev;
-					pIndex->pNext = pIndex->pNext->pNext;
-					pIndex->pNext->pPrev = pIndex;
-					pIndex->pPrev = pTempNext;
-					pIndex->pPrev->pNext = pIndex;
-					pIndex->pPrev->pPrev = pTempPrev;
-					pIndex->pPrev->pPrev->pNext = pIndex->pPrev;
-
-					// if element is start of the list
-					if (pStartOfList == pIndex) {
-						pStartOfList = pIndex->pPrev;
+			if (sortby == 1) {
+				if (scendance == 1) {
+					// comparison
+					if (((int) pIndex->name[0]) > ((int) pIndex->pNext->name[0])) {
+						pStartOfList = swapElement(pIndex, pStartOfList);
 					}
-
+					else {
+						pIndex = pIndex->pNext;
+					}
 				}
 				else {
-					pIndex = pIndex->pNext;
-				}
-			}
-			else {
-				// comparison
-				if ((pIndex->herstellungsjahr) < (pIndex->pNext->herstellungsjahr)) {
-					printf("Swapping %i for %i\n", pIndex->herstellungsjahr, pIndex->pNext->herstellungsjahr);
-
-					// switching pointers and rearranging subpointers
-					struGrafikkarte* pTempNext = pIndex->pNext;
-					struGrafikkarte* pTempPrev = pIndex->pPrev;
-
-					pIndex->pNext = pIndex->pNext->pNext;
-					pIndex->pNext->pPrev = pIndex;
-
-					pIndex->pPrev = pTempNext;
-					pIndex->pPrev->pNext = pIndex;
-
-					pIndex->pPrev->pPrev = pTempPrev;
-					pIndex->pPrev->pPrev->pNext = pIndex->pPrev;
-
-					// if element is starting element of the list
-					if (pStartOfList == pIndex) {
-						pStartOfList = pIndex->pPrev;
+					// comparison
+					if (((int) pIndex->name[0]) < ((int) pIndex->pNext->name[0])) {
+						pStartOfList = swapElement(pIndex, pStartOfList);
 					}
+					else {
+						pIndex = pIndex->pNext;
+					}
+				}
 
+			} else if (sortby == 2) {
+				if (scendance == 1) {
+					// comparison
+					if (((int) pIndex->hersteller[0]) > ((int) pIndex->pNext->hersteller[0])) {
+						pStartOfList = swapElement(pIndex, pStartOfList);
+
+					}
+					else {
+						pIndex = pIndex->pNext;
+					}
 				}
 				else {
-					pIndex = pIndex->pNext;
+					// comparison
+					if (((int) pIndex->hersteller[0]) < ((int) pIndex->pNext->hersteller[0])) {
+						pStartOfList = swapElement(pIndex, pStartOfList);
+					}
+					else {
+						pIndex = pIndex->pNext;
+					}
 				}
 			}
+			else if (sortby == 3) {
+				if (scendance == 1) {
+					// comparison
+					if ((pIndex->herstellungsjahr) > (pIndex->pNext->herstellungsjahr)) {
+						pStartOfList = swapElement(pIndex, pStartOfList);
+					}
+					else {
+						pIndex = pIndex->pNext;
+					}
+				}
+				else {
+					// comparison
+					if ((pIndex->herstellungsjahr) < (pIndex->pNext->herstellungsjahr)) {
+						pStartOfList = swapElement(pIndex, pStartOfList);
+					}
+					else {
+						pIndex = pIndex->pNext;
+					}
+				}
+			}
+			
 
 		}
 	}
-
 	return pStartOfList;
 }
 
+struGrafikkarte* swapElement(struGrafikkarte* pIndex, struGrafikkarte* pStart) {
+	// switching pointer and rearranging subpointers
+	struGrafikkarte* pTempNext = pIndex->pNext;
+	struGrafikkarte* pTempPrev = pIndex->pPrev;
+	pIndex->pNext = pIndex->pNext->pNext;
+	pIndex->pNext->pPrev = pIndex;
+	pIndex->pPrev = pTempNext;
+	pIndex->pPrev->pNext = pIndex;
+	pIndex->pPrev->pPrev = pTempPrev;
+	pIndex->pPrev->pPrev->pNext = pIndex->pPrev;
+
+	// if element is start of the list
+	if (pStart == pIndex) {
+		pStart = pIndex->pPrev;
+	}
+	return pStart;
+}
+
 /*
-*Autor: Leo Scherer
+*Autor: Philip Baumann
 *Prints entire list to the console. By iterating through the list which is possible due to the pNext which gets set to the current structure element
 *@Param pointer, int
 *@Return void
@@ -423,4 +453,3 @@ void main()
 		}
 	}
 }
-

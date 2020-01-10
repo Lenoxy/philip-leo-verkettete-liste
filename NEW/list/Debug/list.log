@@ -1,9 +1,9 @@
 ﻿  Source.cpp
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(320,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(331,11): warning C4473: 'scanf_s' : not enough arguments passed for format string
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(331,11): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(331,11): message : the missing variadic argument 2 is required by format string '%c'
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(331,11): message : this argument is used as a buffer size
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(323,7): warning C4101: 'Name': unreferenced local variable
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(322,7): warning C4101: 'Hersteller': unreferenced local variable
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(413,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(425,11): warning C4473: 'scanf_s' : not enough arguments passed for format string
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(425,11): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(425,11): message : the missing variadic argument 2 is required by format string '%c'
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(425,11): message : this argument is used as a buffer size
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(416,7): warning C4101: 'Name': unreferenced local variable
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(415,7): warning C4101: 'Hersteller': unreferenced local variable
   list.vcxproj -> D:\data\git\philip-leo-verkettete-liste\NEW\Debug\list.exe
