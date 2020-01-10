@@ -1,6 +1,7 @@
 #include "stdlib.h"
 #include "stdio.h"
 #include "string.h"
+#include "time.h";
 
 // Typedefinition
 typedef struct Grafikkarte
@@ -162,6 +163,8 @@ void DeleteElement(struGrafikkarte** pList, char hersteller, char name)
 */
 
 void SortList(struGrafikkarte* pStartOfList, int length) {
+	clock_t t;
+	t = clock();
 	int oCounter, iCounter;
 	printf("Length: %i\n", length);
 	for (oCounter = 0; oCounter !=length; oCounter++) {
@@ -177,6 +180,10 @@ void SortList(struGrafikkarte* pStartOfList, int length) {
 			pIndex = pIndex->pNext;
 		}
 	}
+
+	t = clock() - t;
+	double pace = ((double)t) / CLOCKS_PER_SEC;
+	printf("Sortierung erfolgte in %f", pace);
 }
 
 /*
