@@ -1,16 +1,15 @@
 ﻿  Source.cpp
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(165,16): warning C4101: 'iCounter': unreferenced local variable
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(265,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(276,11): warning C4473: 'scanf_s' : not enough arguments passed for format string
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(276,11): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(276,11): message : the missing variadic argument 2 is required by format string '%c'
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(276,11): message : this argument is used as a buffer size
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(291,12): warning C4473: 'scanf_s' : not enough arguments passed for format string
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(291,12): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(291,12): message : the missing variadic argument 2 is required by format string '%c'
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(291,12): message : this argument is used as a buffer size
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(293,12): warning C4473: 'scanf_s' : not enough arguments passed for format string
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(293,12): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(293,12): message : the missing variadic argument 2 is required by format string '%c'
-D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(293,12): message : this argument is used as a buffer size
-  list.vcxproj -> D:\data\git\philip-leo-verkettete-liste\NEW\Debug\list.exe
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(251,1): warning C4326: Der Rückgabetyp von "main" sollte "int" und nicht "void" sein
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(262,11): warning C4473: "scanf_s": nicht genügend Argumente für Formatzeichenfolge übergeben
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(262,11): message : Platzhalter und deren Parameter erwarten 2 variadic-Argumente, es wurden aber 1 variadic-Argumente bereitgestellt.
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(262,11): message : Das fehlende variadic-Argument "2" ist für die Zeichenfolge "%c" erforderlich.
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(262,11): message : Dieses Argument wird als Puffergröße verwendet.
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(277,12): warning C4473: "scanf_s": nicht genügend Argumente für Formatzeichenfolge übergeben
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(277,12): message : Platzhalter und deren Parameter erwarten 2 variadic-Argumente, es wurden aber 1 variadic-Argumente bereitgestellt.
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(277,12): message : Das fehlende variadic-Argument "2" ist für die Zeichenfolge "%c" erforderlich.
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(277,12): message : Dieses Argument wird als Puffergröße verwendet.
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(279,12): warning C4473: "scanf_s": nicht genügend Argumente für Formatzeichenfolge übergeben
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(279,12): message : Platzhalter und deren Parameter erwarten 2 variadic-Argumente, es wurden aber 1 variadic-Argumente bereitgestellt.
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(279,12): message : Das fehlende variadic-Argument "2" ist für die Zeichenfolge "%c" erforderlich.
+C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(279,12): message : Dieses Argument wird als Puffergröße verwendet.
+  list.vcxproj -> C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\Debug\list.exe
