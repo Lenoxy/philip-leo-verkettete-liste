@@ -276,7 +276,7 @@ void main()
 		scanf_s(" %c", &selection);
 		switch (selection) {
 		case 'a':
-			printf("Wie viele Items soll die Liste beinhaten?	");
+			printf("Wie viele Items soll die Liste beinhaten? ");
 			scanf_s("%i", &Amount);
 			pStart = CreateList(Amount);
 			break;
@@ -294,8 +294,11 @@ void main()
 			DeleteElement(&pStart, Hersteller, Name);
 			break;
 		case 'p':
+			printf("Geben sie Anzahl Elemente ein, welche ausgegeben werden sollen oder 0 für alle Elemente: ");
+			int outputAmount;
+			scanf_s("%i", &outputAmount);
 			printf("%i", Amount);
-			PrintList(&pStart, Amount);
+			PrintList(&pStart, outputAmount);
 			break;
 		case 'v':
 			QuitApplication(&pStart);
