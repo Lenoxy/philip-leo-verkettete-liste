@@ -132,6 +132,7 @@ struGrafikkarte* DeleteElement(struGrafikkarte* pStart)
 	printf("\nGib den Namen des Elements ein\n");
 	gets_s(searchString);
 	gets_s(searchString);
+	int searchInt = atoi(searchString);
 
 	struGrafikkarte* pCurrent = pStart;
 
@@ -139,7 +140,24 @@ struGrafikkarte* DeleteElement(struGrafikkarte* pStart)
 	{
 		switch (element) {
 		case name:
+			if (strcmp(pCurrent->name, searchString) == 0) {
+				printf("Deleting %s\n", pCurrent->name);
+
+				if (pCurrent == pStart) {
+					pStart = pCurrent->pNext;
+				}
+
+				struGrafikkarte* pTempPreDel = pCurrent->pPrev;
+				struGrafikkarte* pTempAfterDel = pCurrent->pNext;
+				pTempPreDel->pNext = pTempAfterDel;
+				pTempAfterDel->pPrev = pTempPreDel;
+
+				struGrafikkarte* pTempDel = pCurrent;
+				pCurrent = pCurrent->pNext;
+				free(pTempDel);
+			}
 			break;
+
 		case hersteller:
 			if (strcmp(pCurrent->hersteller, searchString) == 0) {
 				printf("Deleting %s\n", pCurrent->hersteller);
@@ -160,7 +178,26 @@ struGrafikkarte* DeleteElement(struGrafikkarte* pStart)
 			}
 
 			break;
+
 		case herstellungsjahr:
+			if (pCurrent->herstellungsjahr == searchInt) {
+				printf("Deleting %i\n", pCurrent->herstellungsjahr);
+
+				if (pCurrent == pStart) {
+					printf("pCurrent==pStart");
+					pStart = pCurrent->pNext;
+				}
+
+				struGrafikkarte* pTempPreDel = pCurrent->pPrev;
+				struGrafikkarte* pTempAfterDel = pCurrent->pNext;
+				pTempPreDel->pNext = pTempAfterDel;
+				pTempAfterDel->pPrev = pTempPreDel;
+
+				struGrafikkarte* pTempDel = pCurrent;
+				pCurrent = pCurrent->pNext;
+				free(pTempDel);
+			}
+
 			break;
 		case undefined:
 			break;
