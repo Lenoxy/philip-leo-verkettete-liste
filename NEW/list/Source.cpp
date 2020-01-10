@@ -12,7 +12,7 @@ typedef struct Grafikkarte
 	struct Grafikkarte* pPrev;
 } struGrafikkarte;
 
-enum attributes { name = 1, hersteller, herstellungsjahr, undefined };
+enum attributes { name = 1, hersteller = 2, herstellungsjahr = 3, undefined = 4 };
 
 // Function declaration
 struGrafikkarte* CreateList(int Amount);
@@ -124,15 +124,14 @@ void DeleteList(struGrafikkarte* pStart) {
 struGrafikkarte* DeleteElement(struGrafikkarte* pStart)
 {
 	int element;
-	printf("Wähle eines der 3 Elemente aus?");
+	printf("Wähle eines der 3 Elemente aus:\n");
 	printf("1 = Name, 2 = Hersteller, 3 = Herstellungsjahr\n");
 	scanf_s("%i", &element);
 
 	char searchString[5];
-	printf("Gib den Namen des Elements ein\n");
+	printf("\nGib den Namen des Elements ein\n");
 	gets_s(searchString);
 	gets_s(searchString);
-
 
 	struGrafikkarte* pCurrent = pStart;
 
@@ -142,16 +141,22 @@ struGrafikkarte* DeleteElement(struGrafikkarte* pStart)
 		case name:
 			break;
 		case hersteller:
-			if (strcmp(pCurrent->hersteller, searchString) == 0 && strcmp(pCurrent->name, searchString) == 0) {
-				struGrafikkarte* pTpreDel = pCurrent->pPrev;
-				struGrafikkarte* pTafterDel = pCurrent->pNext;
-				pTpreDel->pNext = pTafterDel;
-				pTafterDel->pPrev = pTpreDel;
-				free(pCurrent);
+			if (strcmp(pCurrent->hersteller, searchString) == 0) {
+				printf("Deleting %s\n", pCurrent->hersteller);
 
 				if (pCurrent == pStart) {
+					printf("pCurrent==pStart");
 					pStart = pCurrent->pNext;
 				}
+
+				struGrafikkarte* pTempPreDel = pCurrent->pPrev;
+				struGrafikkarte* pTempAfterDel = pCurrent->pNext;
+				pTempPreDel->pNext = pTempAfterDel;
+				pTempAfterDel->pPrev = pTempPreDel;
+
+				struGrafikkarte* pTempDel = pCurrent;
+				pCurrent = pCurrent->pNext;
+				free(pTempDel);
 			}
 
 			break;
@@ -338,7 +343,7 @@ void main()
 			pStart = NULL;
 			break;
 		case 'e':
-			DeleteElement(pStart);
+			pStart = DeleteElement(pStart);
 			break;
 		case 'p':
 			PrintList(pStart);

@@ -1,9 +1,9 @@
 ﻿  Source.cpp
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(330,1): warning C4326: Der Rückgabetyp von "main" sollte "int" und nicht "void" sein
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(341,11): warning C4473: "scanf_s": nicht genügend Argumente für Formatzeichenfolge übergeben
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(341,11): message : Platzhalter und deren Parameter erwarten 2 variadic-Argumente, es wurden aber 1 variadic-Argumente bereitgestellt.
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(341,11): message : Das fehlende variadic-Argument "2" ist für die Zeichenfolge "%c" erforderlich.
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(341,11): message : Dieses Argument wird als Puffergröße verwendet.
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(333,7): warning C4101: "Name": Unreferenzierte lokale Variable
-C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\list\Source.cpp(332,7): warning C4101: "Hersteller": Unreferenzierte lokale Variable
-  list.vcxproj -> C:\Users\vmadmin\Documents\git\Philip-Leo-verkettete-liste\NEW\Debug\list.exe
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(320,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(331,11): warning C4473: 'scanf_s' : not enough arguments passed for format string
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(331,11): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(331,11): message : the missing variadic argument 2 is required by format string '%c'
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(331,11): message : this argument is used as a buffer size
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(323,7): warning C4101: 'Name': unreferenced local variable
+D:\data\git\philip-leo-verkettete-liste\NEW\list\Source.cpp(322,7): warning C4101: 'Hersteller': unreferenced local variable
+  list.vcxproj -> D:\data\git\philip-leo-verkettete-liste\NEW\Debug\list.exe
